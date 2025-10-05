@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pakistani Biryani - Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f5f0;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        h1, h2, h3 {
+            color: #8B4513;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #D35400;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background-color: #E67E22;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-secondary {
+            background-color: #8B4513;
+        }
+
+        .btn-secondary:hover {
+            background-color: #A0522D;
+        }
+
+        .btn-danger {
+            background-color: #e74c3c;
+        }
+
+        .btn-danger:hover {
+            background-color: #c0392b;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(0, 0, 0, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 0.7rem 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: #D35400;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: #D35400;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #D35400;
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: #D35400;
+        }
+
+        .mobile-menu {
+            display: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Menu Hero Section - FULL PAGE */
+        .menu-hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1668236543090-82eba5ee5976?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 1.5s ease;
+            padding-top: 60px; /* Account for fixed header */
+        }
+
+        .menu-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .menu-hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-15px) translateX(-50%); }
+            60% { transform: translateY(-7px) translateX(-50%); }
+        }
+
+        /* Menu Categories */
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .category-btn {
+            background-color: white;
+            border: 2px solid #D35400;
+            color: #D35400;
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .category-btn.active, .category-btn:hover {
+            background-color: #D35400;
+            color: white;
+        }
+
+        /* Menu Cards Section */
+        .menu-section {
+            background-color: #f9f5f0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: #D35400;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .menu-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .menu-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .menu-card-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .menu-card:hover .menu-card-img {
+            transform: scale(1.08);
+        }
+
+        .menu-card-content {
+            padding: 1.8rem;
+        }
+
+        .menu-card h3 {
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+        }
+
+        .menu-card p {
+            color: #666;
+            margin-bottom: 1.2rem;
+            line-height: 1.5;
+        }
+
+        .menu-card-price {
+            color: #D35400;
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .menu-card-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            background-color: #f5f5f5;
+            border-radius: 25px;
+            padding: 6px;
+        }
+
+        .quantity-btn {
+            width: 32px;
+            height: 32px;
+            background-color: #D35400;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .quantity-btn:hover {
+            background-color: #E67E22;
+            transform: scale(1.1);
+        }
+
+        .quantity {
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            min-width: 25px;
+            text-align: center;
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #D35400;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        /* Special Offers Section */
+        .special-offers {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            color: white;
+            position: relative;
+            padding: 6rem 0;
+        }
+
+        .special-offers .section-title h2 {
+            color: white;
+            font-size: 3rem;
+        }
+
+        .special-offers .section-title h2::after {
+            background-color: #D35400;
+        }
+
+        .offer-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .offer-content {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 3rem;
+        }
+
+        .offer-image {
+            flex: 1;
+            min-width: 300px;
+            height: 450px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            border: 6px solid #D35400;
+        }
+
+        .offer-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .offer-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .offer-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .offer-content p {
+            margin-bottom: 2.5rem;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .offer-timer {
+            display: flex;
+            gap: 1.2rem;
+            margin-bottom: 2.5rem;
+            justify-content: center;
+        }
+
+        .timer-box {
+            background-color: rgba(255,255,255,0.2);
+            padding: 1.2rem;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 80px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .timer-box span {
+            display: block;
+            font-size: 2.2rem;
+            font-weight: bold;
+        }
+
+        .timer-box p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .discount {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #D35400;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Cart Modal */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .cart-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cart-content {
+            background-color: white;
+            width: 90%;
+            max-width: 650px;
+            border-radius: 15px;
+            padding: 2.5rem;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .cart-header h2 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s;
+        }
+
+        .close-cart:hover {
+            color: #D35400;
+        }
+
+        .cart-items {
+            margin-bottom: 2rem;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-info h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .cart-item-price {
+            color: #D35400;
+            font-weight: bold;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cart-item-quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .cart-item-quantity-btn {
+            width: 28px;
+            height: 28px;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .cart-item-quantity-btn:hover {
+            background-color: #D35400;
+            color: white;
+        }
+
+        .cart-item-quantity-value {
+            margin: 0 8px;
+            font-weight: bold;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .cart-item-delete {
+            background: none;
+            border: none;
+            color: #e74c3c;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+            margin-left: 10px;
+        }
+
+        .cart-item-delete:hover {
+            color: #c0392b;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #eee;
+        }
+
+        .cart-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        /* Order Form */
+        .order-form {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            border-color: #D35400;
+            outline: none;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2C3E50;
+            color: white;
+            padding: 5rem 0 2.5rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-col h3 {
+            color: #D35400;
+            margin-bottom: 1.8rem;
+            font-size: 1.4rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: #D35400;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background-color: #D35400;
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 1rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            background-color: #D35400;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .back-to-top:hover {
+            background-color: #E67E22;
+            transform: translateY(-5px);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Order Success Message */
+        .order-success {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            text-align: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .order-success.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .order-success i {
+            font-size: 4rem;
+            color: #4CAF50;
+            margin-bottom: 1.5rem;
+        }
+
+        .order-success h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .order-success p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background-color: #D35400;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            z-index: 10000;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #D35400;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Email Status */
+        .email-status {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .email-status.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .email-status.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Empty Cart Message */
+        .empty-cart {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+
+        .empty-cart i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ddd;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .menu-hero h1 {
+                font-size: 3.2rem;
+            }
+            
+            .special-offers .section-title h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+                z-index: 999;
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 1.5rem 0;
+            }
+            
+            .menu-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .menu-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .offer-content, .story-content {
+                padding: 0;
+                margin-bottom: 2rem;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .cart-actions {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .cart-actions .btn {
+                width: 100%;
+            }
+
+            .menu-card-actions {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: stretch;
+            }
+
+            .quantity-selector {
+                justify-content: center;
+            }
+
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .cart-item-quantity {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .menu-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .offer-timer {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .timer-box {
+                min-width: 60px;
+                padding: 1rem;
+            }
+
+            .timer-box span {
+                font-size: 1.8rem;
+            }
+
+            .offer-content h2 {
+                font-size: 2rem;
+            }
+
+            .menu-hero {
+                height: 100vh;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo"><i class="fas fa-utensils"></i>Pak<span>Biryani</span></div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#" class="active">Menu</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="catering.html">Catering</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#" class="btn" id="view-cart-btn">View Cart <span id="cart-count">0</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Menu Hero Section - FULL PAGE -->
+    <section class="menu-hero">
+        <div class="container hero-content">
+            <h1>Our Delicious Menu</h1>
+            <p>Explore our wide variety of authentic Pakistani biryanis and traditional dishes</p>
+            <a href="#" class="btn" id="special-deal-btn">Special Family Deal</a>
+        </div>
+        <div class="scroll-down" id="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Menu Categories -->
+    <section class="menu-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Menu</h2>
+            </div>
+            <div class="menu-categories">
+                <button class="category-btn active" data-category="all">All Items</button>
+                <button class="category-btn" data-category="biryani">Biryani</button>
+                <button class="category-btn" data-category="kebab">Kebabs</button>
+                <button class="category-btn" data-category="curry">Curries</button>
+                <button class="category-btn" data-category="dessert">Desserts</button>
+                <button class="category-btn" data-category="drink">Drinks</button>
+            </div>
+
+            <div class="menu-cards-container">
+                <!-- Menu cards will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Deal Section -->
+    <section class="special-offers">
+        <div class="container">
+            <div class="section-title">
+                <h2>Special Combo Deals</h2>
+            </div>
+            <div class="offer-container">
+                <div class="offer-content">
+                    <h2>Family Feast Combo</h2>
+                    <p>Get 2 large biryanis of your choice, 4 kebabs, 2 naans, 2 drinks, and 1 dessert at a special discounted price. Perfect for a family gathering!</p>
+                    <div class="offer-timer">
+                        <div class="timer-box">
+                            <span id="menu-days">02</span>
+                            <p>Days</p>
+                        </div>
+                        <div class="timer-box">
+                            <span id="menu-hours">12</span>
+                            <p>Hours</p>
+                        </div>
+                        <div class="timer-box">
+                            <span id="menu-minutes">45</span>
+                            <p>Minutes</p>
+                        </div>
+                        <div class="timer-box">
+                            <span id="menu-seconds">30</span>
+                            <p>Seconds</p>
+                        </div>
+                    </div>
+                    <p class="discount">Save 30% on this special combo!</p>
+                    <button class="btn" id="add-combo-btn">Add Combo to Cart</button>
+                </div>
+                <div class="offer-image">
+                    <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Special Combo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>PakBiryani</h3>
+                    <p>Authentic Pakistani biryani made with traditional recipes and the finest ingredients.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html" class="active">Menu</a></li>
+                        <li><a href="about.html">About </a></li>
+                        <li><a href="catering.html">Catering</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Food Street, Karachi, Pakistan</li>
+                        <li><i class="fas fa-phone"></i> +92 300 1234567</li>
+                        <li><i class="fas fa-envelope"></i>kashiflaskani23@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Opening Hours</h3>
+                    <ul>
+                        <li>Monday - Thursday: 11:00 AM - 10:00 PM</li>
+                        <li>Friday - Saturday: 11:00 AM - 11:00 PM</li>
+                        <li>Sunday: 12:00 PM - 9:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 PakBiryani. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>Your Order</h2>
+                <button class="close-cart">&times;</button>
+            </div>
+            <div class="cart-items">
+                <!-- Cart items will be populated by JavaScript -->
+            </div>
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">$0.00</span>
+            </div>
+            <div class="cart-actions">
+                <button class="btn btn-secondary" id="continue-shopping">Continue Shopping</button>
+                <button class="btn btn-danger" id="clear-cart-btn">Clear Cart</button>
+                <button class="btn" id="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Form Modal -->
+    <div class="cart-modal" id="order-form-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>Complete Your Order</h2>
+                <button class="close-cart">&times;</button>
+            </div>
+            <div class="order-form">
+                <form id="customer-order-form" action="process_order.php" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="customer-name">Full Name</label>
+                            <input type="text" id="customer-name" name="customer_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-phone">Phone Number</label>
+                            <input type="tel" id="customer-phone" name="customer_phone" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-email">Email Address</label>
+                        <input type="email" id="customer-email" name="customer_email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-address">Delivery Address</label>
+                        <textarea id="customer-address" name="customer_address" rows="3" required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="customer-city">City</label>
+                            <input type="text" id="customer-city" name="customer_city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-zip">ZIP Code</label>
+                            <input type="text" id="customer-zip" name="customer_zip" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="order-notes">Special Instructions (Optional)</label>
+                        <textarea id="order-notes" name="order_notes" rows="3" placeholder="Any special requests or dietary restrictions..."></textarea>
+                    </div>
+                    <input type="hidden" id="order-items" name="order_items">
+                    <input type="hidden" id="order-total" name="order_total">
+                    <div class="loading-spinner" id="form-spinner">
+                        <div class="spinner"></div>
+                        <p>Processing your order and sending email notifications...</p>
+                    </div>
+                    <div id="email-status"></div>
+                    <div class="cart-total">
+                        <span>Total:</span>
+                        <span id="form-total-price">$0.00</span>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;" id="submit-order-btn">Place Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Success Message -->
+    <div class="order-success">
+        <i class="fas fa-check-circle"></i>
+        <h3>Order Placed Successfully!</h3>
+        <p>Thank you for your order. We'll contact you shortly to confirm details.</p>
+        <p>Your order ID: <strong id="order-id">PB-12345</strong></p>
+        <p><strong>Email notifications have been sent to both you and our team.</strong></p>
+        <button class="btn" id="success-ok-btn">OK</button>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script>
+        // Data for menu items
+        const menuItems = [
+            // Biryani Category
+            { id: 1, name: "Chicken Biryani", description: "Tender chicken pieces marinated in aromatic spices and layered with fragrant basmati rice.", price: 12.99, category: "biryani", image: "https://www.haleemghar.com.pk/_ipx/w_400,f_webp,q_100/https://api.haleemghar.com.pk/images/dishes/Ehxp4B3s1757051696.webp", badge: "Popular" },
+            { id: 2, name: "Beef Biryani", description: "Succulent beef chunks cooked with traditional spices and layered with long-grain rice.", price: 14.99, category: "biryani", image: "https://www.haleemghar.com.pk/_ipx/w_400,f_webp,q_100/https://api.haleemghar.com.pk/images/dishes/bgAzUIkv1757051836.webp" },
+            { id: 3, name: "Mutton Biryani", description: "Flavorful mutton pieces slow-cooked with traditional spices and layered rice.", price: 16.99, category: "biryani", image: "https://www.haleemghar.com.pk/_ipx/w_400,f_webp,q_100/https://api.haleemghar.com.pk/images/dishes/Zn78OAxT1757051767.webp" },
+            { id: 4, name: "Vegetable Biryani", description: "A delightful mix of fresh vegetables and aromatic spices with basmati rice.", price: 10.99, category: "biryani", image: "https://www.haleemghar.com.pk/_ipx/w_400,f_webp,q_100/https://api.haleemghar.com.pk/images/dishes/hHH5LZfK1757051812.webp", badge: "Vegetarian" },
+            { id: 5, name: "Prawn Biryani", description: "Juicy prawns cooked with aromatic spices and layered with fragrant basmati rice.", price: 17.99, category: "biryani", image: "https://www.haleemghar.com.pk/_ipx/w_400,f_webp,q_100/https://api.haleemghar.com.pk/images/dishes/NBHlm1m81757071181.webp", badge: "New" },
+            { id: 6, name: "Hyderabadi Biryani", description: "Authentic Hyderabadi style biryani with rich flavors and aromatic spices.", price: 15.99, category: "biryani", image: "https://www.haleemghar.com.pk/_ipx/w_400,f_webp,q_100/https://api.haleemghar.com.pk/images/dishes/bgAzUIkv1757051836.webp", badge: "Special" },
+            
+            // Kebab Category
+            { id: 7, name: "Seekh Kebab", description: "Minced meat kebabs seasoned with traditional spices and grilled to perfection.", price: 8.99, category: "kebab", image: "https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" },
+            { id: 8, name: "Chicken Tikka", description: "Boneless chicken pieces marinated in yogurt and spices, grilled in tandoor.", price: 9.99, category: "kebab", image: "https://www.haleemghar.com.pk/_ipx/w_400,f_webp,q_100/https://api.haleemghar.com.pk/images/dishes/qNStaJ8f1757071139.webp", badge: "Popular" },
+            { id: 9, name: "Reshmi Kebab", description: "Soft, silky kebabs made with minced chicken and delicate spices.", price: 10.99, category: "kebab", image: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" },
+            
+            // Curry Category
+            { id: 10, name: "Chicken Karahi", description: "Traditional Pakistani chicken curry cooked in a wok with tomatoes and spices.", price: 11.99, category: "curry", image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" },
+            { id: 11, name: "Beef Nihari", description: "Slow-cooked beef shank in a rich and spicy gravy, traditional Pakistani dish.", price: 13.99, category: "curry", image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", badge: "Special" },
+            
+            // Dessert Category
+            { id: 12, name: "Kheer", description: "Traditional rice pudding made with milk, rice, sugar, and cardamom.", price: 4.99, category: "dessert", image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" },
+            { id: 13, name: "Fruit ice cream", description: "Soft, fried dough balls soaked in sweet rose-flavored syrup.", price: 5.99, category: "dessert", image: "https://www.haleemghar.com.pk/_ipx/w_400,f_webp,q_100/https://api.haleemghar.com.pk/images/dishes/grXxYnFY1756965484.webp", badge: "Popular" },
+            
+            // Drink Category
+            { id: 14, name: "Mango Lassi", description: "Refreshing yogurt-based drink with sweet mango pulp.", price: 3.99, category: "drink", image: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2067&q=80" },
+            { id: 15, name: "Sugarcane Juice", description: "Freshly extracted sugarcane juice with a hint of lemon and mint.", price: 2.99, category: "drink", image: "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" }
+        ];
+
+        // Special combo deal
+        const specialCombo = {
+            name: "Family Feast Combo",
+            description: "Includes 2 large biryanis, 4 kebabs, 2 naans, 2 drinks, and 1 dessert",
+            price: 49.99,
+            originalPrice: 71.92,
+            items: [1, 7, 14, 12] // IDs of items included in the combo
+        };
+
+        // Initialize cart as EMPTY on page load - RESETS ON REFRESH
+        let cart = [];
+
+        // DOM Elements
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navMenu = document.querySelector('nav ul');
+        const cartModal = document.querySelector('.cart-modal');
+        const orderFormModal = document.getElementById('order-form-modal');
+        const orderSuccess = document.querySelector('.order-success');
+        const viewCartBtn = document.getElementById('view-cart-btn');
+        const cartCount = document.getElementById('cart-count');
+        const closeCartBtns = document.querySelectorAll('.close-cart');
+        const continueShoppingBtn = document.getElementById('continue-shopping');
+        const checkoutBtn = document.getElementById('checkout-btn');
+        const customerOrderForm = document.getElementById('customer-order-form');
+        const successOkBtn = document.getElementById('success-ok-btn');
+        const addComboBtn = document.getElementById('add-combo-btn');
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const backToTopBtn = document.querySelector('.back-to-top');
+        const menuCardsContainer = document.querySelector('.menu-cards-container');
+        const scrollDownBtn = document.getElementById('scroll-down');
+        const specialDealBtn = document.getElementById('special-deal-btn');
+        const formSpinner = document.getElementById('form-spinner');
+        const emailStatus = document.getElementById('email-status');
+        const submitOrderBtn = document.getElementById('submit-order-btn');
+        const clearCartBtn = document.getElementById('clear-cart-btn');
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Reset cart to empty on page load - This ensures cart is always 0 on refresh
+            cart = [];
+            
+            initializeMenuPage();
+            updateCartCount();
+            
+            // Set up event listeners
+            setupEventListeners();
+            
+            // Initialize countdown timers
+            initializeCountdowns();
+        });
+
+        // Initialize Menu Page
+        function initializeMenuPage() {
+            menuCardsContainer.innerHTML = '';
+            
+            // Show all menu items on menu page
+            menuItems.forEach(item => {
+                const card = createCard(item);
+                menuCardsContainer.appendChild(card);
+            });
+        }
+
+        // Create card element for menu items
+        function createCard(item) {
+            const card = document.createElement('div');
+            card.className = 'menu-card';
+            card.dataset.id = item.id;
+            card.dataset.category = item.category;
+            
+            let badgeHTML = '';
+            if (item.badge) {
+                badgeHTML = `<div class="badge">${item.badge}</div>`;
+            }
+            
+            card.innerHTML = `
+                ${badgeHTML}
+                <div class="menu-card-img" style="background-image: url('${item.image}')"></div>
+                <div class="menu-card-content">
+                    <h3>${item.name}</h3>
+                    <p>${item.description}</p>
+                    <div class="menu-card-price">$${item.price.toFixed(2)}</div>
+                    <div class="menu-card-actions">
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus">-</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="btn add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            `;
+            
+            // Add event listeners to quantity buttons and add to cart button
+            const minusBtn = card.querySelector('.minus');
+            const plusBtn = card.querySelector('.plus');
+            const quantitySpan = card.querySelector('.quantity');
+            const addToCartBtn = card.querySelector('.add-to-cart');
+            
+            minusBtn.addEventListener('click', function() {
+                let quantity = parseInt(quantitySpan.textContent);
+                if (quantity > 1) {
+                    quantitySpan.textContent = quantity - 1;
+                }
+            });
+            
+            plusBtn.addEventListener('click', function() {
+                let quantity = parseInt(quantitySpan.textContent);
+                quantitySpan.textContent = quantity + 1;
+            });
+            
+            addToCartBtn.addEventListener('click', function() {
+                const quantity = parseInt(quantitySpan.textContent);
+                addToCart(item.id, quantity);
+                quantitySpan.textContent = 1; // Reset quantity after adding to cart
+            });
+            
+            return card;
+        }
+
+        // Add item to cart
+        function addToCart(itemId, quantity) {
+            const item = menuItems.find(i => i.id === itemId);
+            if (!item) return;
+            
+            const existingItem = cart.find(i => i.id === itemId);
+            
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({
+                    id: item.id,
+                    name: item.name,
+                    price: item.price,
+                    quantity: quantity
+                });
+            }
+            
+            // Update cart count
+            updateCartCount();
+            
+            // Show confirmation
+            showNotification(`${quantity} ${item.name} added to cart!`);
+        }
+
+        // Update cart count in header
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+
+        // Setup all event listeners
+        function setupEventListeners() {
+            // Mobile menu toggle
+            mobileMenu.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+            
+            // Cart modal
+            viewCartBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                showCartModal();
+            });
+            
+            closeCartBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    hideAllModals();
+                });
+            });
+            
+            continueShoppingBtn.addEventListener('click', function() {
+                hideAllModals();
+            });
+            
+            checkoutBtn.addEventListener('click', function() {
+                if (cart.length === 0) {
+                    showNotification('Your cart is empty!');
+                    return;
+                }
+                showOrderForm();
+            });
+            
+            // Clear cart button
+            clearCartBtn.addEventListener('click', function() {
+                if (cart.length === 0) {
+                    showNotification('Your cart is already empty!');
+                    return;
+                }
+                
+                if (confirm('Are you sure you want to clear your cart?')) {
+                    cart = [];
+                    updateCartCount();
+                    updateCartDisplay();
+                    showNotification('Cart cleared successfully!');
+                }
+            });
+            
+            // Order form submission
+            customerOrderForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                processOrder();
+            });
+            
+            // Order success OK button
+            successOkBtn.addEventListener('click', function() {
+                orderSuccess.classList.remove('active');
+            });
+            
+            // Add combo to cart
+            addComboBtn.addEventListener('click', function() {
+                // Add all items in the combo to cart
+                specialCombo.items.forEach(itemId => {
+                    addToCart(itemId, 1);
+                });
+                // Also add the combo itself as a separate item with discounted price
+                cart.push({
+                    id: 'combo',
+                    name: specialCombo.name,
+                    price: specialCombo.price - specialCombo.items.reduce((total, id) => {
+                        const item = menuItems.find(i => i.id === id);
+                        return total + (item ? item.price : 0);
+                    }, 0), // This calculates the discount amount
+                    quantity: 1,
+                    isCombo: true
+                });
+                
+                updateCartCount();
+                showNotification('Family Feast Combo added to cart!');
+            });
+            
+            // Special deal button in hero section
+            specialDealBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Scroll to special offers section
+                document.querySelector('.special-offers').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Scroll down button
+            scrollDownBtn.addEventListener('click', function() {
+                document.querySelector('.menu-section').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Category filtering
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const category = this.dataset.category;
+                    filterMenuItems(category);
+                });
+            });
+            
+            // Back to top button
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                    backToTopBtn.classList.add('active');
+                } else {
+                    header.classList.remove('scrolled');
+                    backToTopBtn.classList.remove('active');
+                }
+            });
+        }
+
+        // Show cart modal
+        function showCartModal() {
+            updateCartDisplay();
+            cartModal.classList.add('active');
+        }
+
+        // Update cart display with enhanced functionality
+        function updateCartDisplay() {
+            const cartItems = document.querySelector('.cart-items');
+            const cartTotalPrice = document.getElementById('cart-total-price');
+            const formTotalPrice = document.getElementById('form-total-price');
+            
+            cartItems.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Your cart is empty</h3>
+                        <p>Add some delicious items to get started!</p>
+                    </div>
+                `;
+                cartTotalPrice.textContent = '$0.00';
+                formTotalPrice.textContent = '$0.00';
+                return;
+            }
+            
+            let total = 0;
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <div class="cart-item-info">
+                        <h4>${item.name}</h4>
+                        <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+                    </div>
+                    <div class="cart-item-quantity">
+                        <div class="cart-item-quantity-controls">
+                            <button class="cart-item-quantity-btn minus" data-index="${index}">-</button>
+                            <span class="cart-item-quantity-value">${item.quantity}</span>
+                            <button class="cart-item-quantity-btn plus" data-index="${index}">+</button>
+                        </div>
+                        <span>$${itemTotal.toFixed(2)}</span>
+                        <button class="cart-item-delete" data-index="${index}" title="Remove item">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+                
+                cartItems.appendChild(cartItem);
+            });
+            
+            // Add event listeners to cart item controls
+            document.querySelectorAll('.cart-item-quantity-btn.minus').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const index = parseInt(this.dataset.index);
+                    updateCartItemQuantity(index, -1);
+                });
+            });
+            
+            document.querySelectorAll('.cart-item-quantity-btn.plus').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const index = parseInt(this.dataset.index);
+                    updateCartItemQuantity(index, 1);
+                });
+            });
+            
+            document.querySelectorAll('.cart-item-delete').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const index = parseInt(this.dataset.index);
+                    removeCartItem(index);
+                });
+            });
+            
+            cartTotalPrice.textContent = `$${total.toFixed(2)}`;
+            formTotalPrice.textContent = `$${total.toFixed(2)}`;
+        }
+
+        // Update cart item quantity
+        function updateCartItemQuantity(index, change) {
+            if (index >= 0 && index < cart.length) {
+                cart[index].quantity += change;
+                
+                // Remove item if quantity becomes 0 or less
+                if (cart[index].quantity <= 0) {
+                    cart.splice(index, 1);
+                    showNotification('Item removed from cart');
+                } else {
+                    showNotification(`Quantity updated to ${cart[index].quantity}`);
+                }
+                
+                // Update display
+                updateCartCount();
+                updateCartDisplay();
+            }
+        }
+
+        // Remove item from cart
+        function removeCartItem(index) {
+            if (index >= 0 && index < cart.length) {
+                const itemName = cart[index].name;
+                cart.splice(index, 1);
+                
+                // Update display
+                updateCartCount();
+                updateCartDisplay();
+                
+                showNotification(`${itemName} removed from cart`);
+            }
+        }
+
+        // Show order form
+        function showOrderForm() {
+            cartModal.classList.remove('active');
+            orderFormModal.classList.add('active');
+        }
+
+        // Process order with email notifications
+        function processOrder() {
+            // Show loading spinner
+            formSpinner.style.display = 'block';
+            submitOrderBtn.disabled = true;
+            emailStatus.innerHTML = '';
+            
+            // Prepare order data
+            const orderData = {
+                customer: {
+                    name: document.getElementById('customer-name').value,
+                    phone: document.getElementById('customer-phone').value,
+                    email: document.getElementById('customer-email').value,
+                    address: document.getElementById('customer-address').value,
+                    city: document.getElementById('customer-city').value,
+                    zip: document.getElementById('customer-zip').value,
+                    notes: document.getElementById('order-notes').value
+                },
+                items: cart,
+                total: document.getElementById('form-total-price').textContent,
+                orderId: 'PB-' + Math.floor(10000 + Math.random() * 90000),
+                date: new Date().toISOString()
+            };
+            
+            // Simulate API call (in a real implementation, this would be a fetch to your backend)
+            setTimeout(() => {
+                // Hide loading spinner
+                formSpinner.style.display = 'none';
+                submitOrderBtn.disabled = false;
+                
+                // Show email status
+                emailStatus.innerHTML = `
+                    <div class="email-status success">
+                        <i class="fas fa-check-circle"></i>
+                        <strong>Email Status:</strong><br>
+                        ✓ Sent to website owner (kashiflaskani23@gmail.com)<br>
+                        ✓ Sent confirmation to your email
+                    </div>
+                `;
+                
+                // Clear cart
+                cart = [];
+                updateCartCount();
+                
+                // Show success message
+                setTimeout(() => {
+                    orderFormModal.classList.remove('active');
+                    document.getElementById('order-id').textContent = orderData.orderId;
+                    orderSuccess.classList.add('active');
+                    
+                    // Reset form
+                    customerOrderForm.reset();
+                }, 1500);
+                
+            }, 2000);
+        }
+
+        // Hide all modals
+        function hideAllModals() {
+            cartModal.classList.remove('active');
+            orderFormModal.classList.remove('active');
+        }
+
+        // Filter menu items by category
+        function filterMenuItems(category) {
+            const menuCards = document.querySelectorAll('.menu-card');
+            
+            menuCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Initialize countdown timers
+        function initializeCountdowns() {
+            function updateCountdown(daysId, hoursId, minutesId, secondsId) {
+                const days = document.getElementById(daysId);
+                const hours = document.getElementById(hoursId);
+                const minutes = document.getElementById(minutesId);
+                const seconds = document.getElementById(secondsId);
+                
+                // Set the date we're counting down to (2 days from now)
+                const countDownDate = new Date();
+                countDownDate.setDate(countDownDate.getDate() + 2);
+                
+                // Update the countdown every 1 second
+                const x = setInterval(function() {
+                    // Get today's date and time
+                    const now = new Date().getTime();
+                    
+                    // Find the distance between now and the countdown date
+                    const distance = countDownDate - now;
+                    
+                    // Time calculations for days, hours, minutes and seconds
+                    const daysValue = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hoursValue = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutesValue = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const secondsValue = Math.floor((distance % (1000 * 60)) / 1000);
+                    
+                    // Display the results
+                    days.textContent = daysValue < 10 ? '0' + daysValue : daysValue;
+                    hours.textContent = hoursValue < 10 ? '0' + hoursValue : hoursValue;
+                    minutes.textContent = minutesValue < 10 ? '0' + minutesValue : minutesValue;
+                    seconds.textContent = secondsValue < 10 ? '0' + secondsValue : secondsValue;
+                    
+                    // If the countdown is finished, reset it
+                    if (distance < 0) {
+                        clearInterval(x);
+                        // Reset to 2 days
+                        countDownDate.setDate(countDownDate.getDate() + 2);
+                    }
+                }, 1000);
+            }
+            
+            // Initialize countdown
+            updateCountdown('menu-days', 'menu-hours', 'menu-minutes', 'menu-seconds');
+        }
+
+        // Show notification
+        function showNotification(message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Remove notification after 3 seconds
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

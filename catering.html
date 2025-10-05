@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pakistani Biryani - Premium Catering Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f5f0;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        h1, h2, h3 {
+            color: #8B4513;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #D35400;
+            color: white;
+            padding: 14px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+        }
+
+        .btn:hover {
+            background-color: #E67E22;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .btn-secondary {
+            background-color: #8B4513;
+        }
+
+        .btn-secondary:hover {
+            background-color: #A0522D;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(0, 0, 0, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 0.7rem 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: #D35400;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: #D35400;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #D35400;
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: #D35400;
+        }
+
+        .mobile-menu {
+            display: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Catering Hero Section - FULL PAGE */
+        .catering-hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            animation: fadeIn 1.5s ease;
+            padding-top: 60px; /* Account for fixed header */
+        }
+
+        .catering-hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .catering-hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-15px) translateX(-50%); }
+            60% { transform: translateY(-7px) translateX(-50%); }
+        }
+
+        /* Catering Services Section */
+        .catering-services {
+            background-color: #f9f5f0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: #D35400;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            padding: 2.5rem 2rem;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            color: #D35400;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        /* Catering Packages Section */
+        .catering-packages {
+            background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05));
+        }
+
+        .packages-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .package-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            position: relative;
+            border: 3px solid transparent;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .package-card.selected {
+            border-color: #D35400;
+            box-shadow: 0 15px 35px rgba(211, 84, 0, 0.3);
+        }
+
+        .package-header {
+            background-color: #8B4513;
+            color: white;
+            padding: 2rem;
+        }
+
+        .package-header h3 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+
+        .package-duration {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .package-features {
+            padding: 2rem;
+        }
+
+        .package-features ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .package-features ul li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .package-features ul li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #D35400;
+            font-weight: bold;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background-color: #D35400;
+            color: white;
+            padding: 8px 40px;
+            transform: rotate(45deg);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .selected-badge {
+            position: absolute;
+            top: 20px;
+            left: -30px;
+            background-color: #27ae60;
+            color: white;
+            padding: 8px 40px;
+            transform: rotate(-45deg);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* Package Selection Summary */
+        .package-summary {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #D35400;
+            display: none;
+        }
+
+        .package-summary.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .summary-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .summary-header h3 {
+            margin: 0;
+            color: #8B4513;
+        }
+
+        .summary-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #D35400;
+        }
+
+        .summary-features {
+            margin-bottom: 1rem;
+        }
+
+        .summary-features ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .summary-features ul li {
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .summary-features ul li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #D35400;
+            font-weight: bold;
+        }
+
+        /* Catering Gallery Section */
+        .catering-gallery {
+            background-color: #f9f5f0;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 250px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Catering Form Section */
+        .catering-form-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            color: white;
+        }
+
+        .catering-form-section .section-title h2 {
+            color: white;
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .form-group input::placeholder, .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            border-color: #D35400;
+            outline: none;
+            background-color: rgba(255,255,255,0.15);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2C3E50;
+            color: white;
+            padding: 5rem 0 2.5rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-col h3 {
+            color: #D35400;
+            margin-bottom: 1.8rem;
+            font-size: 1.4rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: #D35400;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background-color: #D35400;
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 1rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            background-color: #D35400;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: #E67E22;
+            transform: translateY(-5px);
+        }
+
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: white;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 15px;
+            padding: 2.5rem;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: #D35400;
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #D35400;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background-color: #D35400;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 10000;
+            transition: all 0.3s ease;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .catering-hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .catering-hero p {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+                z-index: 999;
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 1.5rem 0;
+            }
+            
+            .catering-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+
+            .form-container {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .catering-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .catering-hero p {
+                font-size: 1.1rem;
+            }
+
+            .services-container, .packages-container, .gallery-container {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card, .package-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo"><i class="fas fa-utensils"></i>Pak<span>Biryani</span></div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="catering.html" class="active">Catering</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#" class="btn" id="book-now-btn">Book Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Catering Hero Section -->
+    <section class="catering-hero">
+        <div class="container hero-content">
+            <h1>Premium Catering Services</h1>
+            <p>Bringing the authentic taste of Pakistani biryani to your special events and celebrations</p>
+            <a href="#catering-form" class="btn">Get a Quote</a>
+        </div>
+        <div class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Catering Services Section -->
+    <section class="catering-services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Catering Services</h2>
+            </div>
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Wedding Catering</h3>
+                    <p>Make your special day unforgettable with our exquisite wedding catering services. We provide complete meal solutions for your wedding ceremony and reception.</p>
+                    <a href="menu.html" class="btn">View Menu</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Corporate Events</h3>
+                    <p>Impress your clients and colleagues with our professional corporate catering. Perfect for meetings, conferences, and office parties.</p>
+                    <a href="menu.html" class="btn">View Menu</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3>Private Parties</h3>
+                    <p>From birthday celebrations to family gatherings, we bring the authentic taste of Pakistan to your private events with customizable menus.</p>
+                    <a href="menu.html" class="btn">View Menu</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catering Packages Section -->
+    <section class="catering-packages">
+        <div class="container">
+            <div class="section-title">
+                <h2>Catering Packages</h2>
+            </div>
+            
+            <!-- Package Selection Summary -->
+            <div class="package-summary" id="package-summary">
+                <div class="summary-header">
+                    <h3 id="summary-title">Selected Package</h3>
+                    <div class="summary-price" id="summary-price">$0</div>
+                </div>
+                <div class="summary-features">
+                    <ul id="summary-features">
+                        <!-- Features will be populated by JavaScript -->
+                    </ul>
+                </div>
+                <p><strong>Ideal for:</strong> <span id="summary-ideal-for"></span></p>
+                <a href="#catering-form" class="btn" style="margin-top: 1rem;">Proceed with this Package</a>
+            </div>
+            
+            <div class="packages-container">
+                <div class="package-card" id="package-basic">
+                    <div class="package-header">
+                        <h3>Basic Package</h3>
+                        <div class="package-price">$15<span class="package-duration">/person</span></div>
+                    </div>
+                    <div class="package-features">
+                        <ul>
+                            <li>2 Biryani Varieties</li>
+                            <li>1 Kebab Option</li>
+                            <li>Raita & Salad</li>
+                            <li>Soft Drinks</li>
+                            <li>Basic Serving Staff</li>
+                        </ul>
+                        <button class="btn select-package-btn" data-package="basic">Select Package</button>
+                    </div>
+                </div>
+                <div class="package-card" id="package-premium">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="package-header">
+                        <h3>Premium Package</h3>
+                        <div class="package-price">$25<span class="package-duration">/person</span></div>
+                    </div>
+                    <div class="package-features">
+                        <ul>
+                            <li>4 Biryani Varieties</li>
+                            <li>3 Kebab Options</li>
+                            <li>2 Curry Dishes</li>
+                            <li>Raita, Salad & Chutneys</li>
+                            <li>Dessert & Drinks</li>
+                            <li>Professional Serving Staff</li>
+                        </ul>
+                        <button class="btn select-package-btn" data-package="premium">Select Package</button>
+                    </div>
+                </div>
+                <div class="package-card" id="package-royal">
+                    <div class="package-header">
+                        <h3>Royal Package</h3>
+                        <div class="package-price">$40<span class="package-duration">/person</span></div>
+                    </div>
+                    <div class="package-features">
+                        <ul>
+                            <li>6 Biryani Varieties</li>
+                            <li>5 Kebab Options</li>
+                            <li>4 Curry Dishes</li>
+                            <li>Full Appetizer Selection</li>
+                            <li>Premium Desserts</li>
+                            <li>Mocktails & Fresh Juices</li>
+                            <li>Dedicated Serving Team</li>
+                            <li>Event Planning Assistance</li>
+                        </ul>
+                        <button class="btn select-package-btn" data-package="royal">Select Package</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catering Gallery Section -->
+    <section class="catering-gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Catering Events</h2>
+            </div>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Wedding Catering">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Corporate Event">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1532634922-8fe0b757fb13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="Private Party">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catering Form Section -->
+    <section class="catering-form-section" id="catering-form">
+        <div class="container">
+            <div class="section-title">
+                <h2>Request a Quote</h2>
+            </div>
+            <div class="form-container">
+                <form id="catering-request-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Your email address" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="event-type">Event Type</label>
+                            <select id="event-type" name="event-type" required>
+                                <option value="">Select event type</option>
+                                <option value="wedding">Wedding</option>
+                                <option value="corporate">Corporate Event</option>
+                                <option value="birthday">Birthday Party</option>
+                                <option value="family">Family Gathering</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="guests">Number of Guests</label>
+                            <input type="number" id="guests" name="guests" placeholder="Approximate number" min="10" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Event Date</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="package">Selected Package</label>
+                            <select id="package" name="package" required>
+                                <option value="">Select a package</option>
+                                <option value="basic">Basic Package ($15/person)</option>
+                                <option value="premium">Premium Package ($25/person)</option>
+                                <option value="royal">Royal Package ($40/person)</option>
+                                <option value="custom">Custom Package</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Special Requests</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Any dietary restrictions, special requests, or additional information..."></textarea>
+                    </div>
+                    
+                    <div class="loading-spinner" id="form-spinner">
+                        <div class="spinner"></div>
+                        <p>Processing your request...</p>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;" id="submit-btn">Submit Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>PakBiryani</h3>
+                    <p>Authentic Pakistani biryani and catering services with traditional recipes and the finest ingredients.</p>
+            
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="catering.html" class="active">Catering</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Food Street, Karachi, Pakistan</li>
+                        <li><i class="fas fa-phone"></i> +92 300 1234567</li>
+                        <li><i class="fas fa-envelope"></i>kashiflaskani@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Opening Hours</h3>
+                    <ul>
+                        <li>Monday - Thursday: 11:00 AM - 10:00 PM</li>
+                        <li>Friday - Saturday: 11:00 AM - 11:00 PM</li>
+                        <li>Sunday: 12:00 PM - 9:00 PM</li>
+                        <li>Catering: 24/7 Inquiries</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 PakBiryani Catering. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Book Now Modal -->
+    <div class="modal" id="book-now-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Book Your Event</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="form-container" style="background: none; padding: 0;">
+                <form id="book-now-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="book-name">Full Name</label>
+                            <input type="text" id="book-name" name="book-name" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="book-phone">Phone Number</label>
+                            <input type="tel" id="book-phone" name="book-phone" placeholder="Your phone number" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="book-email">Email Address</label>
+                        <input type="email" id="book-email" name="book-email" placeholder="Your email address" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="book-event-type">Event Type</label>
+                            <select id="book-event-type" name="book-event-type" required>
+                                <option value="">Select event type</option>
+                                <option value="wedding">Wedding</option>
+                                <option value="corporate">Corporate Event</option>
+                                <option value="birthday">Birthday Party</option>
+                                <option value="family">Family Gathering</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="book-guests">Number of Guests</label>
+                            <input type="number" id="book-guests" name="book-guests" placeholder="Approximate number" min="10" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="book-date">Event Date</label>
+                            <input type="date" id="book-date" name="book-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="book-package">Selected Package</label>
+                            <select id="book-package" name="book-package" required>
+                                <option value="">Select a package</option>
+                                <option value="basic">Basic Package ($15/person)</option>
+                                <option value="premium">Premium Package ($25/person)</option>
+                                <option value="royal">Royal Package ($40/person)</option>
+                                <option value="custom">Custom Package</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="book-message">Special Requests</label>
+                        <textarea id="book-message" name="book-message" rows="4" placeholder="Any dietary restrictions, special requests, or additional information..."></textarea>
+                    </div>
+                    
+                    <div class="loading-spinner" id="book-spinner">
+                        <div class="spinner"></div>
+                        <p>Processing your booking...</p>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;" id="book-submit-btn">Book Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script>
+        // Package details data
+        const packageDetails = {
+            basic: {
+                title: "Basic Package",
+                price: "$15 per person",
+                description: "Perfect for casual gatherings and small events where you want authentic Pakistani flavors without the full service experience.",
+                fullFeatures: [
+                    "2 Biryani Varieties (Chicken & Beef)",
+                    "1 Kebab Option (Seekh Kebab)",
+                    "Fresh Raita & Garden Salad",
+                    "Assorted Soft Drinks",
+                    "Basic Serving Staff (1 per 25 guests)",
+                    "Disposable Plates & Cutlery",
+                    "3-Hour Service Duration"
+                ],
+                idealFor: "Small family gatherings, casual office lunches, intimate birthday parties"
+            },
+            premium: {
+                title: "Premium Package",
+                price: "$25 per person",
+                description: "Our most popular package, offering a complete Pakistani dining experience with variety and professional service.",
+                fullFeatures: [
+                    "4 Biryani Varieties (Chicken, Beef, Mutton, Vegetable)",
+                    "3 Kebab Options (Seekh, Chicken Tikka, Reshmi)",
+                    "2 Curry Dishes (Chicken Karahi & Beef Nihari)",
+                    "Raita, Salad & Assorted Chutneys",
+                    "Traditional Dessert (Kheer or Gulab Jamun)",
+                    "Soft Drinks & Mineral Water",
+                    "Professional Serving Staff (1 per 15 guests)",
+                    "Elegant Dinnerware & Serving Platters",
+                    "4-Hour Service Duration"
+                ],
+                idealFor: "Weddings, corporate events, large birthday celebrations, anniversary parties"
+            },
+            royal: {
+                title: "Royal Package",
+                price: "$40 per person",
+                description: "The ultimate catering experience with premium ingredients, extensive menu options, and white-glove service.",
+                fullFeatures: [
+                    "6 Biryani Varieties (including Prawn & Hyderabadi)",
+                    "5 Kebab Options (including Galouti & Shami)",
+                    "4 Curry Dishes (including special regional recipes)",
+                    "Full Appetizer Selection with Live Stations",
+                    "Premium Desserts (multiple options)",
+                    "Mocktails & Fresh Fruit Juices",
+                    "Dedicated Serving Team (1 per 10 guests)",
+                    "Fine China & Silverware",
+                    "Event Planning Assistance",
+                    "Custom Menu Creation",
+                    "6-Hour Service Duration",
+                    "Complimentary Decor Elements"
+                ],
+                idealFor: "Luxury weddings, high-profile corporate events, VIP gatherings, large-scale celebrations"
+            }
+        };
+
+        // DOM Elements
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navMenu = document.querySelector('nav ul');
+        const backToTopBtn = document.querySelector('.back-to-top');
+        const scrollDownBtn = document.querySelector('.scroll-down');
+        const cateringForm = document.getElementById('catering-request-form');
+        const bookNowForm = document.getElementById('book-now-form');
+        const bookNowBtn = document.getElementById('book-now-btn');
+        
+        // Package selection elements
+        const packageSummary = document.getElementById('package-summary');
+        const summaryTitle = document.getElementById('summary-title');
+        const summaryPrice = document.getElementById('summary-price');
+        const summaryFeatures = document.getElementById('summary-features');
+        const summaryIdealFor = document.getElementById('summary-ideal-for');
+        const packageSelect = document.getElementById('package');
+        const bookPackageSelect = document.getElementById('book-package');
+        
+        // Modal elements
+        const bookNowModal = document.getElementById('book-now-modal');
+        const closeModalBtns = document.querySelectorAll('.close-modal');
+        
+        // Loading spinners
+        const formSpinner = document.getElementById('form-spinner');
+        const bookSpinner = document.getElementById('book-spinner');
+        const submitBtn = document.getElementById('submit-btn');
+        const bookSubmitBtn = document.getElementById('book-submit-btn');
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up event listeners
+            setupEventListeners();
+            
+            // Set minimum date to today for event date
+            const today = new Date();
+            const dd = String(today.getDate()).padStart(2, '0');
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const yyyy = today.getFullYear();
+            document.getElementById('date').min = `${yyyy}-${mm}-${dd}`;
+            document.getElementById('book-date').min = `${yyyy}-${mm}-${dd}`;
+        });
+
+        // Setup all event listeners
+        function setupEventListeners() {
+            // Mobile menu toggle
+            mobileMenu.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+            
+            // Back to top button
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Scroll down button
+            scrollDownBtn.addEventListener('click', function() {
+                document.querySelector('.catering-services').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                    backToTopBtn.classList.add('active');
+                } else {
+                    header.classList.remove('scrolled');
+                    backToTopBtn.classList.remove('active');
+                }
+            });
+            
+            // Catering form submission
+            cateringForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                submitCateringRequest('quote');
+            });
+            
+            // Book now form submission
+            bookNowForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                submitCateringRequest('booking');
+            });
+            
+            // Book now button
+            bookNowBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                showModal(bookNowModal);
+            });
+            
+            // Select package buttons
+            document.querySelectorAll('.select-package-btn').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const package = this.getAttribute('data-package');
+                    selectPackage(package);
+                });
+            });
+            
+            // Package select dropdown change
+            packageSelect.addEventListener('change', function() {
+                if (this.value && this.value !== 'custom') {
+                    selectPackage(this.value);
+                }
+            });
+            
+            bookPackageSelect.addEventListener('change', function() {
+                if (this.value && this.value !== 'custom') {
+                    selectPackage(this.value);
+                }
+            });
+            
+            // Close modal buttons
+            closeModalBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    hideAllModals();
+                });
+            });
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', function(e) {
+                if (e.target.classList.contains('modal')) {
+                    hideAllModals();
+                }
+            });
+        }
+
+        // Select package function
+        function selectPackage(package) {
+            const details = packageDetails[package];
+            if (!details) return;
+            
+            // Remove selected class from all packages
+            document.querySelectorAll('.package-card').forEach(card => {
+                card.classList.remove('selected');
+                const existingBadge = card.querySelector('.selected-badge');
+                if (existingBadge) {
+                    existingBadge.remove();
+                }
+            });
+            
+            // Add selected class to chosen package
+            const selectedCard = document.getElementById(`package-${package}`);
+            selectedCard.classList.add('selected');
+            
+            // Add selected badge
+            const selectedBadge = document.createElement('div');
+            selectedBadge.className = 'selected-badge';
+            selectedBadge.textContent = 'Selected';
+            selectedCard.appendChild(selectedBadge);
+            
+            // Update package summary
+            updatePackageSummary(details);
+            
+            // Update form dropdowns
+            packageSelect.value = package;
+            bookPackageSelect.value = package;
+            
+            // Show success message
+            showNotification(`Great choice! The ${details.title} has been selected.`);
+            
+            // Scroll to the summary if not visible
+            if (!isElementInViewport(packageSummary)) {
+                packageSummary.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }
+        }
+
+        // Update package summary
+        function updatePackageSummary(details) {
+            summaryTitle.textContent = details.title;
+            summaryPrice.textContent = details.price;
+            summaryIdealFor.textContent = details.idealFor;
+            
+            // Clear existing features
+            summaryFeatures.innerHTML = '';
+            
+            // Add new features
+            details.fullFeatures.forEach(feature => {
+                const li = document.createElement('li');
+                li.textContent = feature;
+                summaryFeatures.appendChild(li);
+            });
+            
+            // Show the summary
+            packageSummary.classList.add('active');
+        }
+
+        // Check if element is in viewport
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Show modal
+        function showModal(modal) {
+            hideAllModals();
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Hide all modals
+        function hideAllModals() {
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.classList.remove('active');
+            });
+            document.body.style.overflow = 'auto';
+        }
+
+        // Submit catering request (Frontend only - no backend)
+        function submitCateringRequest(type) {
+            let formData;
+            let formElement;
+            let spinner;
+            let submitButton;
+            
+            if (type === 'quote') {
+                formData = new FormData(cateringForm);
+                formElement = cateringForm;
+                spinner = formSpinner;
+                submitButton = submitBtn;
+            } else {
+                formData = new FormData(bookNowForm);
+                formElement = bookNowForm;
+                spinner = bookSpinner;
+                submitButton = bookSubmitBtn;
+            }
+            
+            // Show loading spinner
+            spinner.style.display = 'block';
+            submitButton.disabled = true;
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                // Hide loading spinner
+                spinner.style.display = 'none';
+                submitButton.disabled = false;
+                
+                // Get form values for confirmation message
+                const name = formData.get(type === 'quote' ? 'name' : 'book-name');
+                const eventType = formData.get(type === 'quote' ? 'event-type' : 'book-event-type');
+                const guests = formData.get(type === 'quote' ? 'guests' : 'book-guests');
+                const package = formData.get(type === 'quote' ? 'package' : 'book-package');
+                
+                // Show success message
+                if (type === 'quote') {
+                    showNotification(`Thank you ${name}! Your ${eventType} catering request for ${guests} guests (${package} package) has been received. We will contact you within 24 hours with a detailed quote.`);
+                    cateringForm.reset();
+                } else {
+                    showNotification(`Thank you ${name}! Your ${eventType} booking for ${guests} guests (${package} package) has been received. We will contact you within 24 hours to confirm your event details.`);
+                    bookNowForm.reset();
+                    hideAllModals();
+                }
+                
+                // Scroll to top
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }, 2000);
+        }
+
+        // Show notification
+        function showNotification(message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Remove notification after 5 seconds
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
